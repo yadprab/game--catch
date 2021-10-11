@@ -21,6 +21,9 @@ export interface IState {
     ThunderPosition?: IPosition["state"];
     count: boolean;
     gameStart: boolean;
+    gameStop: boolean;
+    isWin: boolean;
+    isLose: boolean;
   };
 }
 

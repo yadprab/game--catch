@@ -1,9 +1,11 @@
 import { useReducer } from "react";
 import { Countdown } from "./Components/Countdown";
 import { datacontext } from "./Components/datacontext";
+import { Lose } from "./Components/Lose";
 import { Main } from "./Components/Main";
 import { PositionComp } from "./Components/PositionComp";
 import { Story } from "./Components/Story";
+import { Win } from "./Components/Win";
 import { ACTIONTYPES, ACTIONTYPES2, IState } from "./Interface/interface";
 import "./styles/Styles.css";
 const initialState = {
@@ -33,12 +35,16 @@ const initialState = {
   },
   count: false,
   gameStart: false,
+  gameStop: false,
+  isWin: false,
+  isLose: false,
 };
 
 const reducer = (
   state: IState["state"],
   action: ACTIONTYPES | ACTIONTYPES2
 ) => {
+  const nonMutable = { ...initialState };
   switch (action.type) {
     case "Play":
       return {
@@ -74,6 +80,28 @@ const reducer = (
         count: false,
         gameStart: true,
       };
+    case "Stop":
+      return {
+        ...state,
+        gameStop: true,
+      };
+    case "ResultWin":
+      return {
+        ...state,
+        isWin: true,
+        isLose: false,
+      };
+    case "ResultLose":
+      return {
+        ...state,
+        isWin: false,
+        isLose: true,
+      };
+    case "Reset":
+      return {
+        ...nonMutable,
+      };
+
     default:
       return state;
   }
@@ -88,6 +116,8 @@ function App() {
         {!state.isPlay && <Main />}
         {state.isPlay && state.isPosition && <PositionComp />}
         {state.isPlay && state.count && <Countdown />}
+        {state.isPlay && state.isWin && <Win />}
+        {state.isPlay && state.isLose && <Lose />}
       </datacontext.Provider>
     </>
   );

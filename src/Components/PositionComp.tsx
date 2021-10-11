@@ -17,12 +17,25 @@ const PositionComp = () => {
           </div>
         </div>
         {!context?.state.positionSet && (
-          <ButtonComp
-            Wc="set--button--wrap"
-            Bc="set--position"
-            val="set position"
-            ty="Set Position"
-          />
+          <div className="set--bottom">
+            <p>Drag the catcher to set the position</p>
+            <ButtonComp
+              Wc="set--button--wrap"
+              Bc="set--position"
+              val="set position"
+              ty="Set Position"
+            />
+          </div>
+        )}
+        {context?.state.gameStart && (
+          <div className="set--bottom">
+            <ButtonComp
+              Wc="Stop--button--wrap"
+              Bc="Stop--button"
+              val="Stop"
+              ty="Stop"
+            />
+          </div>
         )}
       </main>
     </div>
