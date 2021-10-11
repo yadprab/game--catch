@@ -1,0 +1,56 @@
+.position--main {
+    display: grid;
+
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 400px auto;
+}
+
+.set--area {
+    background-image: url(../Images/BG.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    align-items: end;
+
+}
+
+.game--area--po {
+    height: 100px;
+    display: grid;
+    grid-template-columns: 1fr 30px;
+    position: relative;
+}
+
+.thunder {
+    position: absolute;
+    right: 0;
+}
+
+#catcher {
+    width: 30px;
+    height: 100px;
+}
+
+#thunder--img {
+    width: 30px;
+    height: 100px;
+
+}
+
+.count--down--wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: var(--numberBg);
+    @include flex-1;
+
+    p {
+        font-size: 3rem;
+        color: var(--number);
+    }
+}
