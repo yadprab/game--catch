@@ -14,6 +14,7 @@ const Number = ({
   set: React.Dispatch<React.SetStateAction<ICount["state"]>>;
 }) => {
   return (
+    
     <motion.p
     variants={countDown}
     initial='hidden'
@@ -25,10 +26,11 @@ const Number = ({
           [id]: true,
         });
       }}
-      transition={{ delay: 0.3 }}
+    
     >
       {val}
     </motion.p>
+    
   );
 };
 export { Number };

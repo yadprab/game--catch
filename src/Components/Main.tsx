@@ -1,6 +1,6 @@
 import { useContext } from "react";
+import IMG from "../Images/mainchar2.png";
 import { datacontext } from "./datacontext";
-
 const Main = () => {
   const context = useContext(datacontext);
   return (
@@ -19,7 +19,7 @@ const Main = () => {
         </div>
         <div className="bottom--section">
           <div className="image">
-            <div className="bg"></div>
+            <img src={IMG} alt="" />
           </div>
           <div className="tool--tip">
             <p>Mame need help</p>

@@ -19,14 +19,16 @@
 
 .game--area--po {
     height: 100px;
-    display: grid;
-    grid-template-columns: 1fr 30px;
-    position: relative;
+    display: flex;
 }
 
 .thunder {
     position: absolute;
+
     right: 0;
+
+
+
 }
 
 #catcher {
@@ -37,6 +39,9 @@
 #thunder--img {
     width: 30px;
     height: 100px;
+    position: relative;
+    right: 0;
+    transform-origin: 83px 279.5px 0px;
 
 }
 
@@ -80,20 +85,67 @@
     right: 0;
     left: 0;
     bottom: 0;
-    @include flex-1;
-    align-items: flex-end;
+
+    display: grid;
+    grid-template-columns: repeat(1, minmax(300px, 700px));
+    place-content: center;
+    padding: 3em 1em;
 
     .inner--wrapper {
-        width: 300px;
-        height: 250px;
+
         @include flex-2;
         background: var(--bg);
         border-radius: 10px;
+        @include box-shadow-2;
+        padding: 1em;
 
         h1 {
             color: var(--title);
         }
 
+        button {
+            @include medium-button;
+            background-color: var(--buttonBg);
+            color: var(--buttonText);
+            letter-spacing: 0.21em;
+            border-radius: 50px;
+            font-family: var(--f);
+        }
+
+    }
+
+}
+
+.button--wrapper {
+    display: grid;
+    grid-template-columns: 1fr 130px;
+    gap: 1.5em;
+
+}
+
+.exit {
+    place-self: center;
+    min-width: 130px;
+}
+
+
+.top--wrapper {
+    @include flex-2;
+    margin: 0 0 1em 0;
+
+    .img--wrapper {
+        width: 96px;
+        height: 96px;
+        overflow: hidden;
+        background: var(--imageBackground);
+        border-radius: 50px;
+        margin: 0 0 1em 0;
+
+        img {
+
+            position: relative;
+            top: -2px;
+        }
     }
 
 }

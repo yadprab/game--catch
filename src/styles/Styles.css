@@ -193,6 +193,7 @@ small,
   display: grid;
   -ms-grid-columns: auto 142px;
       grid-template-columns: auto 142px;
+  gap: 3em;
 }
 
 .top--story p,
@@ -232,6 +233,7 @@ small,
   display: -ms-grid;
   display: grid;
   gap: 1.5em;
+  place-content: center;
 }
 
 .middle--story .image--area {
@@ -292,6 +294,58 @@ small,
   letter-spacing: 0.21em;
 }
 
+.bottom--section {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.image {
+  width: 48px;
+  height: 48px;
+  background: var(--imageBackground);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.tool--tip {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 152px;
+  height: 32px;
+  background-color: var(--buttonBg);
+  border-radius: 4px;
+}
+
+.tool--tip p {
+  margin: 0;
+  letter-spacing: 0.21em;
+  color: var(--buttonText);
+}
+
+.tool--tip::after {
+  position: absolute;
+  content: '';
+  background-color: var(--buttonBg);
+  width: 18px;
+  height: 18px;
+  right: 8px;
+  bottom: -2px;
+  z-index: -1;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
 .position--main {
   display: -ms-grid;
   display: grid;
@@ -316,11 +370,9 @@ small,
 
 .game--area--po {
   height: 100px;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 30px;
-      grid-template-columns: 1fr 30px;
-  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .thunder {
@@ -336,6 +388,10 @@ small,
 #thunder--img {
   width: 30px;
   height: 100px;
+  position: relative;
+  right: 0;
+  -webkit-transform-origin: 83px 279.5px 0px;
+          transform-origin: 83px 279.5px 0px;
 }
 
 .count--down--wrapper {
@@ -407,23 +463,15 @@ small,
   right: 0;
   left: 0;
   bottom: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 700px))[1];
+      grid-template-columns: repeat(1, minmax(300px, 700px));
+  place-content: center;
+  padding: 3em 1em;
 }
 
 .lose--wrapper .inner--wrapper {
-  width: 300px;
-  height: 250px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -439,9 +487,75 @@ small,
           flex-direction: column;
   background: var(--bg);
   border-radius: 10px;
+  -webkit-box-shadow: 0 5px 10px -5px rgba(0, 0, 0, var(--alpha-2));
+          box-shadow: 0 5px 10px -5px rgba(0, 0, 0, var(--alpha-2));
+  padding: 1em;
 }
 
 .lose--wrapper .inner--wrapper h1 {
   color: var(--title);
+}
+
+.lose--wrapper .inner--wrapper button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.5em 0.75em;
+  cursor: pointer;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  line-height: 24px;
+  background-color: var(--buttonBg);
+  color: var(--buttonText);
+  letter-spacing: 0.21em;
+  border-radius: 50px;
+  font-family: var(--f);
+}
+
+.button--wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 130px;
+      grid-template-columns: 1fr 130px;
+  gap: 1.5em;
+}
+
+.exit {
+  place-self: center;
+  min-width: 130px;
+}
+
+.top--wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 0 1em 0;
+}
+
+.top--wrapper .img--wrapper {
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  background: var(--imageBackground);
+  border-radius: 50px;
+  margin: 0 0 1em 0;
+}
+
+.top--wrapper .img--wrapper img {
+  position: relative;
+  top: -2px;
 }
 /*# sourceMappingURL=Styles.css.map */

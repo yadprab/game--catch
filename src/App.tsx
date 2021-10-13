@@ -23,16 +23,7 @@ const initialState = {
     bottom: 0,
     left: 0,
   },
-  ThunderPosition: {
-    x: 0,
-    y: 0,
-    width: 0,
-    height: 0,
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-  },
+
   count: false,
   gameStart: false,
   gameStop: false,
@@ -45,6 +36,7 @@ const reducer = (
   action: ACTIONTYPES | ACTIONTYPES2
 ) => {
   const nonMutable = { ...initialState };
+  const cP = { ...initialState.catcherPosition };
   switch (action.type) {
     case "Play":
       return {
@@ -97,7 +89,20 @@ const reducer = (
         isWin: false,
         isLose: true,
       };
+
     case "Reset":
+      return {
+        ...state,
+
+        isWin: false,
+        isLose: false,
+        gameStop: false,
+        gameStart: false,
+        positionSet: false,
+        catcherPosition: cP,
+      };
+
+    case "Exit":
       return {
         ...nonMutable,
       };

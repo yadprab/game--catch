@@ -42,7 +42,7 @@ export const countDown = {
     opacity: [1, 0],
 
     transition: {
-      duration: 1.5,
+      duration: 2,
     },
   },
   exit: {

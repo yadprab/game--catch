@@ -48,6 +48,7 @@
 .middle--story {
     display: grid;
     grid-template-columns: auto 142px;
+    gap: 3em;
 
     p {
         font-family: var(--font2);
@@ -71,6 +72,7 @@
 .story--main {
     display: grid;
     gap: 1.5em;
+    place-content: center;
 }
 
 .middle--story {
@@ -86,7 +88,7 @@
 }
 
 .skip--wrapper {
- 
+
     position: fixed;
     bottom: 0;
     right: 0;
@@ -105,5 +107,52 @@
         color: var(--buttonText);
         font-family: var(--font);
         letter-spacing: 0.21em;
+    }
+}
+
+
+.bottom--section {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.image {
+
+    width: 48px;
+    height: 48px;
+    background: var(--imageBackground);
+    border-radius: 50px;
+    overflow: hidden;
+
+}
+
+.tool--tip {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+    @include flex-1;
+    width: 152px;
+    height: 32px;
+    background-color: var(--buttonBg);
+    border-radius: 4px;
+
+
+    p {
+        margin: 0;
+        letter-spacing: 0.21em;
+        color: var(--buttonText);
+    }
+
+    &::after {
+        position: absolute;
+        content: '';
+        background-color: var(--buttonBg);
+        width: 18px;
+        height: 18px;
+        right: 8px;
+        bottom: -2px;
+        z-index: -1;
+        transform: rotate(45deg);
     }
 }

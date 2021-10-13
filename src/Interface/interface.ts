@@ -18,7 +18,6 @@ export interface IState {
     isPosition: boolean;
     positionSet: boolean;
     catcherPosition?: IPosition["state"];
-    ThunderPosition?: IPosition["state"];
     count: boolean;
     gameStart: boolean;
     gameStop: boolean;
