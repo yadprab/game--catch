@@ -18,7 +18,7 @@ const PositionComp = () => {
         </div>
         {!context?.state.positionSet && (
           <div className="set--bottom">
-            <p>Drag the catcher to set the position</p>
+            <p>Drag the catcher horizontally to set the position</p>
             <ButtonComp
               Wc="set--button--wrap"
               Bc="set--position"

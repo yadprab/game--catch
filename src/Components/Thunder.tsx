@@ -6,22 +6,23 @@ import {
   useLayoutEffect,
   useRef,
 } from "react";
+import { useWindowSize } from "react-use";
 import soundfile from "../Audio/thun2.wav";
 import IMG from "../Images/thunderCh.png";
 import { datacontext } from "./datacontext";
 const Thunder = () => {
   const controls = useAnimation();
-
+  const { width } = useWindowSize();
   const ref = useRef<HTMLImageElement>(null);
   const soundRef = useRef<HTMLAudioElement>(null);
   const context = useContext(datacontext);
   const start = useCallback(() => {
     controls.start({
-      x: 2000,
+      x: width,
       transition: { repeat: Infinity, duration: 0.4 },
     });
     (soundRef.current as HTMLAudioElement).play();
-  }, [controls]);
+  }, [controls, width]);
 
   const stop = useCallback(() => {
     controls.stop();
@@ -43,6 +44,7 @@ const Thunder = () => {
     }
     // eslint-disable-next-line
   }, [context?.state.gameStop, context?.state.catcherPosition]);
+
   useEffect(() => {
     !context?.state.gameStop ? start() : stop();
   }, [context?.state.gameStop, stop, start]);

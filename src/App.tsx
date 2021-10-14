@@ -1,4 +1,5 @@
-import { useReducer } from "react";
+import { useEffect, useReducer, useRef } from "react";
+import AUD from "./Audio/button.mp3";
 import { Countdown } from "./Components/Countdown";
 import { datacontext } from "./Components/datacontext";
 import { Lose } from "./Components/Lose";
@@ -114,6 +115,12 @@ const reducer = (
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const ref = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    (ref.current as HTMLAudioElement).play();
+  }, [state.isPlay, state.isPosition]);
   return (
     <>
       <datacontext.Provider value={{ state, dispatch }}>
@@ -124,6 +131,9 @@ function App() {
         {state.isPlay && state.isWin && <Win />}
         {state.isPlay && state.isLose && <Lose />}
       </datacontext.Provider>
+      <audio ref={ref}>
+        <source src={AUD} type="audio/mp3" />
+      </audio>
     </>
   );
 }

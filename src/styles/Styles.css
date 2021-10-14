@@ -373,6 +373,7 @@ small,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
 }
 
 .thunder {
@@ -388,8 +389,11 @@ small,
 #thunder--img {
   width: 30px;
   height: 100px;
-  position: relative;
+  position: absolute;
   right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
   -webkit-transform-origin: 83px 279.5px 0px;
           transform-origin: 83px 279.5px 0px;
 }
@@ -436,6 +440,8 @@ small,
 .set--bottom p {
   font-family: var(--font2);
   color: var(--title);
+  max-width: 228px;
+  text-align: center;
 }
 
 .set--bottom button {
@@ -459,7 +465,6 @@ small,
 
 .lose--wrapper {
   position: fixed;
-  top: 0;
   right: 0;
   left: 0;
   bottom: 0;
